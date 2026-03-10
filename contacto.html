@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — VÉLA</title>
+  <meta name="description" content="Ponte en contacto con VÉLA. Formulario, teléfono, email, ubicación en mapa y redes sociales.">
+  <meta property="og:title" content="Contacto — VÉLA">
+  <meta property="og:description" content="Contáctanos y transforma tu negocio hoy.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="navbar" id="main-nav" role="banner"></header>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="subtitle reveal">Hablemos</span>
+      <h1 class="reveal">Ponte en <span class="text-gradient">Contacto</span></h1>
+      <p class="reveal">Estamos listos para escucharte y ayudarte a lograr tus objetivos.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="reveal">
+          <h2 style="margin-bottom:0.5rem;">Envíanos un Mensaje</h2>
+          <p style="margin-bottom:2rem;">Completa el formulario y te responderemos en menos de 24 horas.</p>
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Nombre completo *</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Teléfono (opcional)</label>
+              <input type="tel" id="phone" name="phone" placeholder="+52 55 0000 0000">
+            </div>
+            <div class="form-group">
+              <label for="subject">Asunto *</label>
+              <input type="text" id="subject" name="subject" placeholder="¿En qué podemos ayudarte?" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje *</label>
+              <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Enviar Mensaje →</button>
+            <div class="form-message" id="form-message"></div>
+          </form>
+        </div>
+        <!-- Contact Info -->
+        <div class="reveal">
+          <div class="contact-info-card">
+            <h3 style="margin-bottom:2rem;">Información de Contacto</h3>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+              <div><h4>Dirección</h4><p id="contact-address">Av. Principal #123, Colonia Centro, Ciudad de México, CP 06000</p></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+              <div><h4>Teléfono</h4><p id="contact-phone">+52 55 1234 5678</p></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">✉️</div>
+              <div><h4>Email</h4><p id="contact-email">contacto@tunegocio.com</p></div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">🕐</div>
+              <div><h4>Horario</h4><p id="contact-hours">Lunes a Viernes: 9:00 – 18:00</p></div>
+            </div>
+            <!-- Social Links -->
+            <div style="margin-top:2rem;">
+              <h4 style="margin-bottom:1rem;">Síguenos</h4>
+              <div class="footer-social" id="contact-social"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Map -->
+      <div id="google-map" class="reveal"></div>
+    </div>
+  </section>
+
+  <footer class="footer" id="main-footer" role="contentinfo"></footer>
+  <div id="whatsapp-float"></div>
+  <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">↑</button>
+  <div class="cookie-banner" id="cookie-banner" role="alert">
+    <div class="cookie-inner">
+      <p>🍪 Utilizamos cookies para mejorar tu experiencia en nuestro sitio web.</p>
+      <div class="cookie-btns"><button class="cookie-accept">Aceptar</button><button class="cookie-reject">Rechazar</button></div>
+    </div>
+  </div>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/maps.js"></script>
+  <script>
+    // Populate contact info from config
+    document.addEventListener('DOMContentLoaded', () => {
+      const c = CONFIG.contact;
+      const el = (id) => document.getElementById(id);
+      if(el('contact-address')) el('contact-address').textContent = c.address;
+      if(el('contact-phone')) el('contact-phone').textContent = c.phone;
+      if(el('contact-email')) el('contact-email').textContent = c.email;
+      if(el('contact-hours')) el('contact-hours').textContent = c.hours;
+      // Social links
+      const socialEl = el('contact-social');
+      if(socialEl) {
+        const icons = {facebook:'f',instagram:'📷',tiktok:'♪',twitter:'𝕏',linkedin:'in',youtube:'▶'};
+        socialEl.innerHTML = Object.entries(CONFIG.social).filter(([,u])=>u).map(([p,u])=>
+          `<a href="${u}" target="_blank" rel="noopener noreferrer" aria-label="${p}">${icons[p]||p[0]}</a>`
+        ).join('');
+      }
+    });
+  </script>
+</body>
+</html>
