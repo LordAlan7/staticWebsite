@@ -176,8 +176,7 @@ function buildNavigation() {
   navContainer.innerHTML = `
     <div class="container">
       <a href="index.html" class="nav-logo" aria-label="${CONFIG.business.name}">
-        <span class="nav-logo-icon">V</span>
-        ${CONFIG.business.name}
+        <img src="assets/images/logoHowl.png" alt="${CONFIG.business.name} logo" class="nav-logo-img">
       </a>
       <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
         ${linksHTML}
@@ -220,7 +219,7 @@ function buildFooter() {
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo"><span class="nav-logo-icon">V</span> ${CONFIG.business.name}</div>
+          <div class="footer-logo"><img src="assets/images/logoHowl.png" alt="${CONFIG.business.name} logo" class="footer-logo-img"></div>
           <p class="footer-desc">${CONFIG.business.description}</p>
           <div class="footer-social">${socialHTML}</div>
         </div>
@@ -342,7 +341,12 @@ function populatePageContent() {
   if (teamGrid) {
     teamGrid.innerHTML = CONFIG.about.team.map((m, i) => `
       <div class="team-card reveal reveal-delay-${i + 1}">
-        <div class="photo"><img src="${m.photo}" alt="${m.name}" loading="lazy" onerror="this.parentElement.style.background='var(--gradient)';"></div>
+        <div class="photo team-photo-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <circle cx="40" cy="30" r="18" fill="rgba(255,255,255,0.85)"/>
+            <ellipse cx="40" cy="72" rx="28" ry="18" fill="rgba(255,255,255,0.85)"/>
+          </svg>
+        </div>
         <h3>${m.name}</h3><p>${m.role}</p>
       </div>
     `).join('');

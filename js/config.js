@@ -167,12 +167,10 @@ const CONFIG = {
 
   /* ── Galería de fotos ── */
   gallery: [
-    { src: "assets/images/gallery-1.jpg", alt: "Proyecto de diseño interior moderno" },
-    { src: "assets/images/gallery-2.jpg", alt: "Oficina de trabajo colaborativo" },
-    { src: "assets/images/gallery-3.jpg", alt: "Sesión de consultoría estratégica" },
-    { src: "assets/images/gallery-4.jpg", alt: "Desarrollo de proyecto digital" },
-    { src: "assets/images/gallery-5.jpg", alt: "Equipo de trabajo profesional" },
-    { src: "assets/images/gallery-6.jpg", alt: "Evento de capacitación empresarial" },
+    { src: "assets/images/gallery/desistemSS.PNG", alt: "Proyecto Desistem" },
+    { src: "assets/images/gallery/humoRosaSS.PNG", alt: "Proyecto Humo Rosa" },
+    { src: "assets/images/gallery/staticWebSS.PNG", alt: "Proyecto Static Web" },
+    { src: "assets/images/gallery/tokyoSushiSS.PNG", alt: "Proyecto Tokyo Sushi" },
   ],
 
   /* ── Nosotros ── */
